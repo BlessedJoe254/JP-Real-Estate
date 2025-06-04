@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/logo.png'; // adjust path if needed
 
 const links = [
   { to: '/', label: 'Dashboard' },
@@ -22,14 +23,17 @@ const links = [
 
 export default function Sidebar() {
   return (
-    <nav className="bg-gray-900 text-white w-60 min-h-screen p-4 flex flex-col space-y-3 sticky top-0">
-      <h1 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">JP Real Estate</h1>
+    <nav className="bg-gray-900 text-white w-60 min-h-screen p-4 flex flex-col space-y-1.5 sticky top-0">
+      <div className="flex justify-center mb-4">
+        <img src={logo} alt="JP Logo" className="h-32 object-contain" />
+      </div>
+      <div className="border-b border-gray-700 mb-4" />
       {links.map(({ to, label }) => (
         <NavLink
           key={to}
           to={to}
           className={({ isActive }) =>
-            `block px-3 py-2 rounded-md hover:bg-gray-700 transition-colors ${
+            `block px-3 py-1 rounded-md hover:bg-gray-700 transition-colors ${
               isActive ? 'bg-blue-600 font-semibold' : 'font-normal'
             }`
           }

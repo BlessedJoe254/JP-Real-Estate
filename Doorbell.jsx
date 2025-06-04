@@ -12,7 +12,7 @@ const Doorbell = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Ring Alerts */}
         <div className="card bg-gradient-to-br from-purple-900 to-gray-900 hover:scale-105 transform transition duration-300">
-          <FaBell className="text-5xl text-purple-400 mb-4" />
+          <FaBell className="text-5xl text-purple-400 mb-4 pulse-bell" />
           <h2 className="text-xl font-semibold mb-2">Ring Alerts</h2>
           <p className="text-gray-400 mb-4">Receive instant notifications when someone rings the doorbell.</p>
           <button className="btn-subsystem">View Alerts</button>
