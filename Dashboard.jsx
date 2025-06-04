@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import React from "react";
 import { FaHome, FaShieldAlt, FaBolt, FaTint } from "react-icons/fa";
 
@@ -15,7 +16,7 @@ const Dashboard = () => {
           <FaHome className="text-5xl text-indigo-400 mb-4" />
           <h2 className="text-xl font-semibold mb-2">Home Status</h2>
           <p className="text-gray-400 mb-4">All systems are running smoothly.</p>
-          <button className="btn-subsystem">View Details</button>
+          <NavLink to="/system-status" className="btn-subsystem">View Details</NavLink>
         </div>
 
         {/* Security Alerts */}
@@ -23,7 +24,7 @@ const Dashboard = () => {
           <FaShieldAlt className="text-5xl text-red-400 mb-4" />
           <h2 className="text-xl font-semibold mb-2">Security Alerts</h2>
           <p className="text-gray-400 mb-4">No recent alerts.</p>
-          <button className="btn-subsystem">View Logs</button>
+          <NavLink to="/security-logs" className="btn-subsystem">View Logs</NavLink>
         </div>
 
         {/* Energy Usage */}
@@ -31,7 +32,7 @@ const Dashboard = () => {
           <FaBolt className="text-5xl text-yellow-400 mb-4" />
           <h2 className="text-xl font-semibold mb-2">Energy Usage</h2>
           <p className="text-gray-400 mb-4">Current usage is 450 kWh.</p>
-          <button className="btn-subsystem">View Stats</button>
+          <NavLink to="/energy-stats" className="btn-subsystem">View Stats</NavLink>
         </div>
 
         {/* Water Consumption */}
@@ -39,7 +40,7 @@ const Dashboard = () => {
           <FaTint className="text-5xl text-blue-400 mb-4" />
           <h2 className="text-xl font-semibold mb-2">Water Consumption</h2>
           <p className="text-gray-400 mb-4">You used 1200 liters this week.</p>
-          <button className="btn-subsystem">View Details</button>
+          <NavLink to="/water-stats" className="btn-subsystem">View Details</NavLink>
         </div>
       </div>
     </div>

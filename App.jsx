@@ -20,6 +20,16 @@ import Waste from './pages/Waste';
 import Clothesline from './pages/Clothesline';
 import Robot from './pages/Robot';
 
+import SystemStatus from './pages/SystemStatus';
+import SecurityLogs from './pages/SecurityLogs';
+import EnergyStats from './pages/EnergyStats';
+import WaterStats from './pages/WaterStats';
+
+// ✅ New Security Subroutes
+import CameraFeeds from './pages/security/CameraFeeds';
+import ToggleAlarm from './pages/security/ToggleAlarm';
+import SensorsView from './pages/security/SensorsView';
+
 function App() {
   return (
     <Router>
@@ -43,6 +53,17 @@ function App() {
             <Route path="/waste" element={<Waste />} />
             <Route path="/clothesline" element={<Clothesline />} />
             <Route path="/robot" element={<Robot />} />
+
+            {/* Dashboard Extras */}
+            <Route path="/system-status" element={<SystemStatus />} />
+            <Route path="/security-logs" element={<SecurityLogs />} />
+            <Route path="/energy-stats" element={<EnergyStats />} />
+            <Route path="/water-stats" element={<WaterStats />} />
+
+            {/* ✅ Security Extra Pages */}
+            <Route path="/security/camera-feeds" element={<CameraFeeds />} />
+            <Route path="/security/toggle-alarm" element={<ToggleAlarm />} />
+            <Route path="/security/sensors" element={<SensorsView />} />
           </Routes>
         </main>
       </div>
