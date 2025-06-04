@@ -20,15 +20,22 @@ import Waste from './pages/Waste';
 import Clothesline from './pages/Clothesline';
 import Robot from './pages/Robot';
 
+// Dashboard detail pages
 import SystemStatus from './pages/SystemStatus';
 import SecurityLogs from './pages/SecurityLogs';
 import EnergyStats from './pages/EnergyStats';
 import WaterStats from './pages/WaterStats';
 
-// ✅ New Security Subroutes
-import CameraFeeds from './pages/security/CameraFeeds';
-import ToggleAlarm from './pages/security/ToggleAlarm';
-import SensorsView from './pages/security/SensorsView';
+// Security detail pages
+import CameraFeeds from './pages/CameraFeeds';
+import ToggleAlarm from './pages/ToggleAlarm';
+import SensorsView from './pages/SensorsView';
+import SecurityLogDetail from './pages/SecurityLogs'; // alias if needed
+
+// Door Lock detail pages
+import LockStatus from './pages/LockStatus';
+import AccessLogs from './pages/AccessLogs';
+import LockControl from './pages/LockControl';
 
 function App() {
   return (
@@ -54,16 +61,22 @@ function App() {
             <Route path="/clothesline" element={<Clothesline />} />
             <Route path="/robot" element={<Robot />} />
 
-            {/* Dashboard Extras */}
+            {/* Dashboard Stats Pages */}
             <Route path="/system-status" element={<SystemStatus />} />
             <Route path="/security-logs" element={<SecurityLogs />} />
             <Route path="/energy-stats" element={<EnergyStats />} />
             <Route path="/water-stats" element={<WaterStats />} />
 
-            {/* ✅ Security Extra Pages */}
-            <Route path="/security/camera-feeds" element={<CameraFeeds />} />
-            <Route path="/security/toggle-alarm" element={<ToggleAlarm />} />
-            <Route path="/security/sensors" element={<SensorsView />} />
+            {/* Security Subpages */}
+            <Route path="/view-camera-feeds" element={<CameraFeeds />} />
+            <Route path="/toggle-alarm" element={<ToggleAlarm />} />
+            <Route path="/view-sensors" element={<SensorsView />} />
+            <Route path="/view-logs" element={<SecurityLogDetail />} />
+
+            {/* Door Lock Subpages */}
+            <Route path="/lock-status" element={<LockStatus />} />
+            <Route path="/access-logs" element={<AccessLogs />} />
+            <Route path="/lock-control" element={<LockControl />} />
           </Routes>
         </main>
       </div>

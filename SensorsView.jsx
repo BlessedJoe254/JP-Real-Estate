@@ -1,39 +1,33 @@
 import React from "react";
+import { FaMicrochip } from "react-icons/fa";
+
+const sensorData = [
+  { name: "Front Door Motion Sensor", status: "Active", color: "green" },
+  { name: "Backyard Sensor", status: "Inactive", color: "red" },
+  { name: "Garage Intrusion Sensor", status: "Active", color: "green" },
+  { name: "Window Glass Sensor", status: "Active", color: "green" },
+];
 
 const SensorsView = () => {
-  // Example sensors data (replace with real data)
-  const sensors = [
-    { id: 1, name: "Front Door Sensor", status: "Active" },
-    { id: 2, name: "Back Door Sensor", status: "Inactive" },
-    { id: 3, name: "Living Room Motion Sensor", status: "Active" },
-    { id: 4, name: "Garage Sensor", status: "Active" },
-  ];
-
   return (
-    <div className="p-6 text-white">
-      <h1 className="text-4xl font-bold mb-6 text-red-500">Security Sensors</h1>
-      <p className="text-gray-300 mb-8">
-        Current status of your home security sensors.
+    <div className="text-white p-6">
+      <h1 className="text-4xl font-bold mb-6 text-blue-400">Sensor Activity</h1>
+      <p className="text-gray-300 mb-8 max-w-xl">
+        Below is a real-time view of your smart security sensors and their current status.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {sensors.map((sensor) => (
+        {sensorData.map((sensor, idx) => (
           <div
-            key={sensor.id}
-            className={`p-6 rounded shadow ${
-              sensor.status === "Active" ? "bg-green-700" : "bg-gray-700"
-            }`}
+            key={idx}
+            className="bg-gradient-to-br from-blue-800 to-gray-900 p-6 rounded-lg shadow-md hover:scale-105 transform transition duration-300"
           >
-            <h2 className="text-2xl font-semibold">{sensor.name}</h2>
-            <p className="mt-2 text-lg">
-              Status:{" "}
-              <span
-                className={`font-bold ${
-                  sensor.status === "Active" ? "text-green-300" : "text-gray-400"
-                }`}
-              >
-                {sensor.status}
-              </span>
+            <div className="flex items-center mb-4">
+              <FaMicrochip className="text-3xl text-blue-300 mr-4" />
+              <h2 className="text-xl font-semibold">{sensor.name}</h2>
+            </div>
+            <p className={`text-${sensor.color}-400 font-bold`}>
+              Status: {sensor.status}
             </p>
           </div>
         ))}
