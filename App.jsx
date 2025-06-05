@@ -36,7 +36,19 @@ import SecurityLogDetail from './pages/SecurityLogs';
 import LockStatus from './pages/LockStatus';
 import LockAccessLog from './pages/LockAccessLog';
 import LockControl from './pages/LockControl';
-import LockUsers from './pages/LockUsers'; // ✅ Add this line
+import LockUsers from './pages/LockUsers';
+
+// HVAC detail pages
+import FanSpeed from './pages/FanSpeed';
+import HeatingControl from './pages/HeatingControl';
+import SetTemperature from './pages/SetTemperature';
+import CoolingControl from './pages/CoolingControl';
+
+// Lighting detail pages ✅ NEW
+import ToggleLights from './pages/ToggleLights';
+import SetBrightness from './pages/SetBrightness';
+import ColorControl from './pages/ColorControl';
+import LightingSchedule from './pages/LightingSchedule';
 
 function App() {
   return (
@@ -77,9 +89,21 @@ function App() {
 
             {/* Door Lock Subpages */}
             <Route path="/lock-status" element={<LockStatus />} />
-            <Route path="/lock-access-logs" element={<LockAccessLog />} /> {/* ✅ fixed */}
-            <Route path="/remote-lock-control" element={<LockControl />} /> {/* ✅ fixed */}
-            <Route path="/manage-lock-users" element={<LockUsers />} /> {/* ✅ NEW */}
+            <Route path="/lock-access-logs" element={<LockAccessLog />} />
+            <Route path="/remote-lock-control" element={<LockControl />} />
+            <Route path="/manage-lock-users" element={<LockUsers />} />
+
+            {/* HVAC Subpages */}
+            <Route path="/fan-speed" element={<FanSpeed />} />
+            <Route path="/heating-control" element={<HeatingControl />} />
+            <Route path="/set-temperature" element={<SetTemperature />} />
+            <Route path="/cooling-control" element={<CoolingControl />} />
+
+            {/* Lighting Subpages ✅ NEW */}
+            <Route path="/toggle-lights" element={<ToggleLights />} />
+            <Route path="/set-brightness" element={<SetBrightness />} />
+            <Route path="/color-control" element={<ColorControl />} />
+            <Route path="/lighting-schedule" element={<LightingSchedule />} />
           </Routes>
         </main>
       </div>
