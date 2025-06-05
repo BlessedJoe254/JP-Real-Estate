@@ -1,32 +1,45 @@
-import React from "react";
-import { FaLock } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaLock, FaUnlock } from "react-icons/fa";
 
 const LockStatus = () => {
+  // Mock data for door locks
+  const [doors] = useState([
+    { id: 1, name: "Front Door", locked: true },
+    { id: 2, name: "Back Door", locked: false },
+    { id: 3, name: "Garage Door", locked: true },
+  ]);
+
   return (
-    <div className="text-white p-6">
-      <h1 className="text-4xl font-bold mb-6 text-purple-400">Lock Status</h1>
+    <div className="p-6 text-white">
+      <h1 className="text-4xl font-bold mb-8 text-green-500 flex items-center gap-3">
+        Door Lock Status
+      </h1>
       <p className="text-gray-300 mb-6 max-w-xl">
-        Monitor the current state of all smart locks installed across your estate.
+        Check whether your doors are locked or unlocked.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="card bg-gradient-to-br from-purple-800 to-gray-900">
-          <FaLock className="text-5xl text-purple-400 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Main Entrance</h2>
-          <p className="text-gray-400">Status: <span className="text-green-400">Locked</span></p>
-        </div>
-
-        <div className="card bg-gradient-to-br from-purple-700 to-gray-900">
-          <FaLock className="text-5xl text-purple-300 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Back Door</h2>
-          <p className="text-gray-400">Status: <span className="text-red-400">Unlocked</span></p>
-        </div>
-
-        <div className="card bg-gradient-to-br from-purple-600 to-gray-900">
-          <FaLock className="text-5xl text-indigo-400 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Garage Lock</h2>
-          <p className="text-gray-400">Status: <span className="text-green-400">Locked</span></p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+        {doors.map(({ id, name, locked }) => (
+          <div
+            key={id}
+            className={`p-6 rounded-lg shadow-lg flex items-center gap-4 
+              ${
+                locked
+                  ? "bg-gradient-to-br from-green-700 to-green-900"
+                  : "bg-gradient-to-br from-red-700 to-red-900"
+              }`}
+          >
+            {locked ? (
+              <FaLock className="text-4xl text-white" />
+            ) : (
+              <FaUnlock className="text-4xl text-white" />
+            )}
+            <div>
+              <h3 className="text-xl font-semibold">{name}</h3>
+              <p>{locked ? "Locked" : "Unlocked"}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

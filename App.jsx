@@ -30,12 +30,13 @@ import WaterStats from './pages/WaterStats';
 import CameraFeeds from './pages/CameraFeeds';
 import ToggleAlarm from './pages/ToggleAlarm';
 import SensorsView from './pages/SensorsView';
-import SecurityLogDetail from './pages/SecurityLogs'; // alias if needed
+import SecurityLogDetail from './pages/SecurityLogs';
 
 // Door Lock detail pages
 import LockStatus from './pages/LockStatus';
-import AccessLogs from './pages/AccessLogs';
+import LockAccessLog from './pages/LockAccessLog';
 import LockControl from './pages/LockControl';
+import LockUsers from './pages/LockUsers'; // ✅ Add this line
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Sidebar />
         <main className="flex-grow p-8 overflow-auto">
           <Routes>
+            {/* Main Pages */}
             <Route path="/" element={<Dashboard />} />
             <Route path="/security" element={<Security />} />
             <Route path="/door-lock" element={<DoorLock />} />
@@ -75,8 +77,9 @@ function App() {
 
             {/* Door Lock Subpages */}
             <Route path="/lock-status" element={<LockStatus />} />
-            <Route path="/access-logs" element={<AccessLogs />} />
-            <Route path="/lock-control" element={<LockControl />} />
+            <Route path="/lock-access-logs" element={<LockAccessLog />} /> {/* ✅ fixed */}
+            <Route path="/remote-lock-control" element={<LockControl />} /> {/* ✅ fixed */}
+            <Route path="/manage-lock-users" element={<LockUsers />} /> {/* ✅ NEW */}
           </Routes>
         </main>
       </div>

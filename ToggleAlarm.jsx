@@ -2,36 +2,27 @@ import React, { useState } from "react";
 import { FaBell } from "react-icons/fa";
 
 const ToggleAlarm = () => {
-  const [alarmOn, setAlarmOn] = useState(true);
-
-  const handleToggle = () => {
-    setAlarmOn((prev) => !prev);
-  };
+  const [armed, setArmed] = useState(false);
 
   return (
-    <div className="text-white p-6">
-      <h1 className="text-4xl font-bold mb-6 text-yellow-400">Alarm Control</h1>
-      <p className="text-gray-300 mb-8 max-w-xl">
-        Use the switch below to enable or disable your estate’s security alarm.
+    <div className="p-6 text-white">
+      <h1 className="text-4xl font-bold mb-8 text-orange-500 flex items-center gap-3">
+        <FaBell /> Toggle Alarm
+      </h1>
+      <p className="text-gray-300 mb-6 max-w-xl">
+        Arm or disarm your home alarm system.
       </p>
 
-      <div className="bg-gradient-to-br from-yellow-800 to-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <div className="flex items-center mb-6">
-          <FaBell className="text-5xl text-yellow-300 mr-4" />
-          <h2 className="text-2xl font-semibold">
-            Alarm is currently <span className={alarmOn ? "text-green-400" : "text-red-400"}>{alarmOn ? "ON" : "OFF"}</span>
-          </h2>
-        </div>
-        <button
-          onClick={handleToggle}
-          className={`px-6 py-3 rounded-md font-semibold text-white transition ${
-            alarmOn
-              ? "bg-red-600 hover:bg-red-700"
-              : "bg-green-600 hover:bg-green-700"
-          }`}
-        >
-          {alarmOn ? "Turn Off Alarm" : "Turn On Alarm"}
-        </button>
+      <div
+        className={`cursor-pointer select-none rounded-lg px-8 py-6 text-2xl font-semibold shadow-lg
+          ${
+            armed
+              ? "bg-gradient-to-br from-red-700 to-red-900 text-white hover:opacity-90"
+              : "bg-gradient-to-br from-green-700 to-gray-900 text-gray-400 hover:text-white hover:bg-red-700"
+          } transition duration-300 w-48 text-center`}
+        onClick={() => setArmed(!armed)}
+      >
+        {armed ? "Alarm Armed" : "Alarm Disarmed"}
       </div>
     </div>
   );
